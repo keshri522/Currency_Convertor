@@ -1,0 +1,62 @@
+body {
+  background-image: url("https://img.freepik.com/free-vector/gradient-liquid-abstract-background_23-2148898674.jpg?w=740&t=st=1700252873~exp=1700253473~hmac=565e4b52569fcbab22bc281df6162e50803752bc9787b395a079da414094b81e");
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+}
+/* for the home page  */
+.box {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.color {
+  background-color: transparent !important;
+  border: none;
+}
+
+/* // for the image of currency */
+.size {
+  max-height: 300px;
+  position: relative;
+  bottom: 2rem;
+  background-color: transparent;
+}
+/* // for the input background */
+.transparent {
+  background-color: transparent;
+}
+/* .icons:hover{
+  color: ;
+} */
+
+/* Styles for dark mode */
+.dark-mode {
+  background-image: url("https://img.freepik.com/premium-photo/abstract-art-chinese-watercolor-art-background-colorful-texture-simple-design-ink-wash-painting_912113-188541.jpg?w=740");
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* Optional: Add a smooth transition to improve the visual experience */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* // media query for singup button with google */
+@media screen and (max-width: 600px) {
+  .change {
+    flex-direction: column;
+    width: 100%;
+  }
+  .margin {
+    margin-bottom: 9px;
+  }
+}
