@@ -25,7 +25,7 @@ const ToggleModeButton = () => {
 
   return (
     <button
-      className="toggle-mode-button m-2 p-2 btn btn-danger text-white"
+      className="toggle-mode-button btn-sm btn btn-danger text-white"
       onClick={toggleMode}
     >
       {isDarkMode ? <FaSun /> : <FaMoon />}

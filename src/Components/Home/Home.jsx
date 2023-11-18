@@ -10,7 +10,7 @@ const Home = () => {
     <>
       <div className="box">
         <div className="col-md-12 text-center">
-          <img className="img img-fluid size" src={Currency} alt="" />
+          {/* <img className="img img-fluid size" src={Currency} alt="" /> */}
           <h2 className="text-white">
             Welcome to Currency Convertor Appication
           </h2>

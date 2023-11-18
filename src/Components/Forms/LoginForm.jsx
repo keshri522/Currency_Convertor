@@ -1,10 +1,11 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const LoginForm = () => {
   return (
     <div className="container">
       <div className="row box">
         <div className="col-md-6">
+          {/* <h3>Login Page</h3> */}
           <div className="form-floating mb-3">
             <input
               type="email"
@@ -24,24 +25,28 @@ const LoginForm = () => {
             <label htmlFor="floatingPassword">Password</label>
           </div>
           <div className="d-flex justify-content-between">
-            <a href="#forgotPassword">Forgot Password?</a>
-            <a href="#createAccount">Don't have an account?</a>
+            <Link className="nav-link" href="#forgotPassword">
+              Forgot Password?
+            </Link>
+            <Link to="/register" className="nav-link">
+              Don't have an account?
+            </Link>
           </div>
           <button
-            className="btn btn-outline-primary mt-3 w-100 p-1"
+            className="btn btn-outline-danger mt-3 w-100 p-2"
             type="submit"
           >
             Sign In
           </button>
           <div className="mt-3">
-            {/* Include Google Icons */}
-            <button className="btn btn-outline-warning w-100 p-1">
+            <button className="btn btn-outline-warning w-100 p-2">
+              {/* font awesome icons */}
               <i className="fab fa-google icons"></i> Sign In with Google
             </button>
           </div>
           <div className="mt-3">
-            <button className="btn btn-outline-dark w-100 p-1">
-              <i className="fab fa-github icons"></i> Sign In with Google
+            <button className="btn btn-outline-dark w-100 p-2">
+              <i className="fab fa-github icons"></i> Sign In with Gtihub
             </button>
           </div>
         </div>

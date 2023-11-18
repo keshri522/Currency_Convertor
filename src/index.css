@@ -1,6 +1,5 @@
 body {
-  background-image: url("https://img.freepik.com/free-vector/gradient-liquid-abstract-background_23-2148898674.jpg?w=740&t=st=1700252873~exp=1700253473~hmac=565e4b52569fcbab22bc281df6162e50803752bc9787b395a079da414094b81e");
-
+  background-image: linear-gradient(#e7e1ee, #516395);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -12,7 +11,7 @@ body {
 /* for the home page  */
 .box {
   display: flex;
-  height: 100vh;
+  height: 90vh;
   justify-content: center;
   align-items: center;
 }
@@ -32,9 +31,6 @@ body {
 .transparent {
   background-color: transparent;
 }
-/* .icons:hover{
-  color: ;
-} */
 
 /* Styles for dark mode */
 .dark-mode {
@@ -48,6 +44,14 @@ body {
 /* Optional: Add a smooth transition to improve the visual experience */
 body {
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+.nav-link {
+  color: #6c5ce7;
+  font-weight: bold;
+}
+.forgot-password {
+  color: red;
+  font-weight: bold;
 }
 
 /* // media query for singup button with google */

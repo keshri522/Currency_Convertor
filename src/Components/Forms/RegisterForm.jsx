@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const RegisterForm = () => {
   return (
     <div className="container">
@@ -41,9 +41,9 @@ const RegisterForm = () => {
             ></input>
             <label htmlFor="floatingConfirmPassword">Confirm Password</label>
           </div>
-          <a className="margin" href="#alreadyLogin">
+          <Link className="margin nav-link" to="/login">
             Already have an account?
-          </a>
+          </Link>
           <button
             className="btn btn-outline-success mt-3 w-100 p-1"
             type="submit"

@@ -1,16 +1,12 @@
 import "./App.css";
-import Home from "./Components/Home/Home";
-import LoginForm from "./Components/Forms/LoginForm";
-import RegisterForm from "./Components/Forms/RegisterForm";
 
-import ToggleModeButton from "./Components/Mode/ToggleMode";
+import Nav from "./Components/Navbar/Nav";
+import Path from "./Components/Routers/routes";
 function App() {
   return (
     <div className="App">
-      <ToggleModeButton></ToggleModeButton>
-      {/* <Home></Home> */}
-      {/* <LoginForm></LoginForm> */}
-      <RegisterForm></RegisterForm>
+      <Nav></Nav>
+      <Path></Path>
     </div>
   );
 }
