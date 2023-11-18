@@ -4,13 +4,21 @@ import ToggleModeButton from "../Mode/ToggleMode";
 
 const Nav = () => {
   const navigate = useNavigate();
+  const [data, Setdata] = useState({});
   const [boolean, setBoolean] = useState(getDataFromLocalStorage());
   // this function first get the data from local storage
   function getDataFromLocalStorage() {
     const data = localStorage.getItem("loading");
     return data || "";
   }
-
+  useEffect(() => {
+    const user = localStorage.getItem("RegisterData");
+    if (user) {
+      Setdata(JSON.parse(user));
+    } else {
+      Setdata(null);
+    }
+  }, []);
   const handleStorageChange = () => {
     setBoolean(getDataFromLocalStorage());
   };
@@ -45,9 +53,13 @@ const Nav = () => {
                 Login
               </Link>
             )}
-            <Link className="nav-link" to="/register">
-              Register
-            </Link>
+            {data && (data.given_name || data.name) ? (
+              <h5>{data.given_name || data.name}</h5>
+            ) : (
+              <Link className="nav-link" to="/register">
+                Register
+              </Link>
+            )}
           </div>
         </div>
       </div>

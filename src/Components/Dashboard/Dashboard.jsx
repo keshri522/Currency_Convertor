@@ -1,131 +1,52 @@
-// import React, { useState } from "react";
-// // this is the dashboard of the My application
-// const Dashboard = () => {
-//   const [originalAmount, setOriginalAmount] = useState(""); // by defauLT I AMS SHOWING A CURRENCY
-//   const [fromCurrency, setFromCurrency] = useState(""); // based on onchange i will add the value on this state later make a api call
-//   const [toCurrency, setToCurrency] = useState(""); // based on the state we will select to convert on which currency i want to convert
-//   const [convertedAmount, setConvertedAmount] = useState(""); // here once convert the wresult will added to this state
-//   // this function clear all the values that has store previously
-//   const clearValues = () => {
-//     setOriginalAmount("");
-//     setFromCurrency("");
-//     setToCurrency("");
-//     setConvertedAmount("");
-//   };
-
-//   const convertCurrency = () => {
-//     // You can implement the currency conversion logic here
-//     // Update the convertedAmount state accordingly
-//   };
-
-//   return (
-//     <>
-//       <div className="container-fluid">
-//         <div className="row">
-//           <div className="col-md-12">
-//             <h1 className="heading text-center display-2">
-//               Currency Converter
-//             </h1>
-//           </div>
-//         </div>
-//       </div>
-//       <hr />
-//       {/* this is for the dropdown menu */}
-//       <div className="container">
-//         <div className="row box">
-//           <div className="col-md-12">
-//             <div className="form-group">
-//               <label htmlFor="amount">Amount to Convert :</label>
-//               <input
-//                 type="text"
-//                 className="form-control searchBox"
-//                 placeholder="0.00"
-//                 id="amount"
-//                 value={originalAmount}
-//                 onChange={(e) => setOriginalAmount(e.target.value)}
-//               />
-//             </div>
-
-//             <div className="row d-flex justify-content-between">
-//               <div className="col-md-6">
-//                 <div className="input-group mb-3">
-//                   <span className="input-group-text">From</span>
-
-//                   <select
-//                     className="form-control"
-//                     value={fromCurrency}
-//                     onChange={(e) => setFromCurrency(e.target.value)}
-//                   >
-//                     {/* Options for from currency */}
-//                   </select>
-//                 </div>
-//               </div>
-
-//               <div className="col-sm-6">
-//                 <div className="input-group mb-3">
-//                   <span className="input-group-text">To</span>
-
-//                   <select
-//                     className="form-control"
-//                     value={toCurrency}
-//                     onChange={(e) => setToCurrency(e.target.value)}
-//                   >
-//                     {/* Options for to currency */}
-//                   </select>
-//                 </div>
-//               </div>
-//             </div>
-
-//             <div className="text-center">
-//               <button
-//                 className="btn btn-primary convert m-2"
-//                 type="submit"
-//                 onClick={convertCurrency}
-//               >
-//                 Convert
-//               </button>
-
-//               <button className="btn btn-primary m-2" onClick={clearValues}>
-//                 Reset
-//               </button>
-//             </div>
-//           </div>
-
-//           <div id="finalAmount" className="text-center">
-//             <h2>
-//               Converted Amount :
-//               <span className="finalValue" style={{ color: "green" }}>
-//                 {convertedAmount}
-//               </span>
-//             </h2>
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Dashboard;
-
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 const Dashboard = () => {
-  const [originalAmount, setOriginalAmount] = useState("");
-  const [fromCurrency, setFromCurrency] = useState("");
-  const [toCurrency, setToCurrency] = useState("");
-  const [convertedAmount, setConvertedAmount] = useState("");
-
+  const [CountryCurrencyCode, SetCountryCurrencyCode] = useState([]); // for storing all the codes that will be shown in the options
+  const [originalAmount, setOriginalAmount] = useState(""); // by defauLT I AMS SHOWING A CURRENCY
+  const [fromCurrency, setFromCurrency] = useState("INR"); // based on onchange i will add the value on this state later make a api call
+  const [toCurrency, setToCurrency] = useState(""); // based on the state we will select to convert on which currency i want to convert
+  const [convertedAmount, setConvertedAmount] = useState(""); // here once convert the wresult will added to this state
+  const [check, setcheck] = useState(false); // based on this i will show  the Converted resutls
+  // this function will clear all the fields once user click on the reset button
   const clearValues = () => {
     setOriginalAmount("");
-    setFromCurrency("");
+    // setFromCurrency("");
     setToCurrency("");
     setConvertedAmount("");
   };
-
   const convertCurrency = () => {
-    // Implement your currency conversion logic here
-    // Update the convertedAmount state accordingly
+    // swapping the currency to each others
+    setFromCurrency(toCurrency);
+    setToCurrency(fromCurrency);
   };
+  // creatng a api that will return all the current currency rates based on the states or input changes
+  useEffect(() => {
+    // usingg IMFE function to optimise the code to reduce time complexity
+    (async () => {
+      try {
+        // calling a api function here
+        const response = await axios.get(
+          `https://api.exchangerate-api.com/v4/latest/${fromCurrency}`
+        );
+
+        // console.log(response.data.rates); just for debugging
+        // here the rates are coming in the key value pair so i need to extract all the key  or currency and store in some state to show in my select options
+        const CountryCurrency = Object.keys(response.data.rates);
+        SetCountryCurrencyCode(CountryCurrency);
+        //from whome we want to exchange because in the response given an array we can use indexing to find
+        const exchangeAmount = response.data.rates[toCurrency]; // based on the onchange events
+        // now set the converted amount based on the number of amounts
+
+        setConvertedAmount(originalAmount * exchangeAmount); // this will final amount based on the how much rates of the currency based on the numbers
+        // console.log(CountryCurrency);
+      } catch (error) {
+        // console.log(error);
+      }
+    })();
+  }, [check, originalAmount, fromCurrency, toCurrency]); // this will run based on the depedencyiess
+
+  //   console.log(CountryCurrencyCode);
+  //   console.log(fromCurrency, toCurrency); just for debugging
 
   return (
     <>
@@ -148,25 +69,31 @@ const Dashboard = () => {
                 Amount to Convert
               </label>
               <input
-                type="text"
-                className="form-control searchBox"
-                placeholder="0.00"
-                id="amount"
+                placeholder="Enter amount to be converted"
+                type="number"
+                className="form-control searchBox mb-1 p-2"
                 value={originalAmount}
                 onChange={(e) => setOriginalAmount(e.target.value)}
+                step="any" // Use "any" to allow any numeric input
               />
             </div>
 
-            <div className="row justify-content-between mt-3">
+            <div className="row justify-content-between mt-4">
               <div className="col-md-6">
-                <div className="input-group mb-3">
+                <div className="input-group ">
                   <span className="input-group-text">From</span>
                   <select
-                    className="form-select"
+                    className="form-select p-2"
                     value={fromCurrency}
                     onChange={(e) => setFromCurrency(e.target.value)}
                   >
-                    {/* Options for from currency */}
+                    <option value="">From currency</option>
+                    {/* showing all thecountrycode in the options using map function */}
+                    {CountryCurrencyCode?.map((code, i) => (
+                      <option key={i} value={code}>
+                        {code}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>
@@ -175,11 +102,18 @@ const Dashboard = () => {
                 <div className="input-group mb-3">
                   <span className="input-group-text">To</span>
                   <select
-                    className="form-select"
+                    className="form-select p-2"
                     value={toCurrency}
                     onChange={(e) => setToCurrency(e.target.value)}
                   >
-                    {/* Options for to currency */}
+                    <option value="">To currency</option>
+                    {/* shwowing all the currency code based onthe state of application coing from api */}
+                    {CountryCurrencyCode?.map((code, i) => (
+                      <option key={i} value={code}>
+                        {code}
+                      </option>
+                    ))}
+                    {/* this will show all the country code */}
                   </select>
                 </div>
               </div>
@@ -191,13 +125,18 @@ const Dashboard = () => {
                 type="button"
                 onClick={convertCurrency}
               >
-                Convert
+                <i class="fa-solid fa-right-left"></i>
               </button>
 
               <button
                 className="btn btn-danger m-2 b"
                 type="button"
                 onClick={clearValues}
+                disabled={
+                  fromCurrency.length === 0 ||
+                  toCurrency.length === 0 ||
+                  originalAmount.length === 0
+                }
               >
                 Reset
               </button>
