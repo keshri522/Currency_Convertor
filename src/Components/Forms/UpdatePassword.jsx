@@ -11,8 +11,6 @@ const UpdatePassword = () => {
   });
   // this method or function will change old password to nbew password once user try to forgot the password
   const ChangePassword = async (e) => {
-    e.preventDefault();
-
     try {
       // first verify the confirm and password are matched
       if (password.element1 !== password.element2) {
@@ -37,7 +35,7 @@ const UpdatePassword = () => {
   const handleChange = (e) => {
     Setpassword({ ...password, [e.target.name]: e.target.value });
   };
-  console.log(password);
+
   // console.log(email);
   // console.log(localemail.email); // just for debugging
   return (

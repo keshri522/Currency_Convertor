@@ -24,6 +24,7 @@ const LoginForm = ({ SiginpUser, loading, formdata, hanldeChange }) => {
         if (res.status === 200) {
           // if wwill work only successful status code
           localStorage.setItem("RegisterData", JSON.stringify(res.data));
+          localStorage.setItem("loading", JSON.stringify(1));
           navigate("/");
         }
       } catch (error) {

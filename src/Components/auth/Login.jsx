@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import LoginForm from "../Forms/LoginForm";
 import { toast } from "react-toastify";
-
+import { useNavigate } from "react-router-dom";
 const Login = () => {
   // this function will return all the data which is present in local stroage for validation
-
+  const navigate = useNavigate();
   const [userdata, Setuserdata] = useState([]);
 
   const [loading, Setloading] = useState(false); // for showing the condtional rendering based on the state
@@ -48,6 +48,7 @@ const Login = () => {
         // to show some lading effect with some delay
         Setloading(false);
         toast.success("Login Suceessfully");
+        navigate("/");
       }, 1000);
     } catch (error) {
       //   console.log(error); just for debugging

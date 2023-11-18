@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import RegisterForm from "../Forms/RegisterForm";
 import { toast } from "react-toastify";
-
+import { useNavigate } from "react-router-dom";
 const Register = () => {
+  const navigate = useNavigate();
   const [loading, Setloading] = useState(false); // for showing the condtional rendering based on the state
   // this is the parent component that handles all the functions of its child component, which is the login page
   const [formdata, Setformdata] = useState({
@@ -41,9 +42,12 @@ const Register = () => {
       // If all validations pass, you can proceed with further actions, such as storing data in localStorage.
       Setloading(true);
       localStorage.setItem("RegisterData", JSON.stringify(formdata));
+      localStorage.setItem("loading", JSON.stringify(1));
       setTimeout(() => {
         // to show some lading effect with some delay
         Setloading(false);
+        toast.success("Registration Success");
+        navigate("/login");
       }, 1000);
     } catch (error) {
       // console.log(error);
