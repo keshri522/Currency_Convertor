@@ -23,7 +23,7 @@ const RegisterForm = ({ formdata, hanldeChange, SignupUser, loading }) => {
         if (res.status === 200) {
           // if wwill work only successful status code
           localStorage.setItem("RegisterData", JSON.stringify(res.data));
-          navigate("/");
+          navigate("/"); // redircetto the home page
         }
       } catch (error) {
         // console.log(error.message);

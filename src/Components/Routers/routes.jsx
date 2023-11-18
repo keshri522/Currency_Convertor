@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "../Home/Home";
-// import LoginForm from "../Forms/LoginForm";
+
 import Register from "../auth/Register";
-// import RegisterForm from "../Forms/RegisterForm";
+import UpdatePassword from "../Forms/UpdatePassword";
 import Login from "../auth/Login";
 import ForgotPassword from "../Forms/ForgotPassword";
 import ChangePassowrd from "../Forms/ChangePassword";
@@ -23,6 +23,10 @@ const Path = () => {
         <Route
           path="/changepassword"
           element={<ChangePassowrd></ChangePassowrd>}
+        ></Route>
+        <Route
+          path="/updatepassword"
+          element={<UpdatePassword></UpdatePassword>}
         ></Route>
       </Routes>
     </>
