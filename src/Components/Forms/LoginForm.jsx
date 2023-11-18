@@ -1,6 +1,38 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+import { useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
+import { toast } from "react-toastify";
 const LoginForm = ({ SiginpUser, loading, formdata, hanldeChange }) => {
+  const navigate = useNavigate();
+  // this function will allow user to access the credentials direct from the google auth no need  to sign up..
+  const login = useGoogleLogin({
+    // here token i dycrypeted if i want to get the details of user based on login i need to use jwt-dcode for this
+    onSuccess: async (tokenResponse) => {
+      try {
+        const res = await axios.get(
+          "https://www.googleapis.com/oauth2/v3/userinfo",
+          {
+            headers: {
+              Authorization: `Bearer ${tokenResponse.access_token}`,
+            },
+          }
+        );
+        // sending all the response which is user data to localStorage to access globally and also make the data persistent
+        // console.log(res); just for debugging
+        if (res.status === 200) {
+          // if wwill work only successful status code
+          localStorage.setItem("RegisterData", JSON.stringify(res.data));
+          navigate("/");
+        }
+      } catch (error) {
+        // console.log(error.message);
+        toast.error(error.message);
+      }
+    },
+  });
+
   return (
     <div className="container">
       <div className="row box">
@@ -56,7 +88,11 @@ const LoginForm = ({ SiginpUser, loading, formdata, hanldeChange }) => {
             </button>
           )}
           <div className="mt-3">
-            <button className="btn btn-outline-warning w-100 p-2">
+            <button
+              // here using google login on onclick events
+              onClick={() => login()}
+              className="btn btn-outline-warning w-100 p-2"
+            >
               {/* font awesome icons */}
               <i className="fab fa-google icons"></i> Sign In with Google
             </button>
