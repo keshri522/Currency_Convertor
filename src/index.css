@@ -53,6 +53,10 @@ body {
   color: red;
   font-weight: bold;
 }
+.remove {
+  border: none;
+  border-bottom: 2px solid wheat;
+}
 
 /* // media query for singup button with google */
 @media screen and (max-width: 600px) {

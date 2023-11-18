@@ -52,7 +52,7 @@ const RegisterForm = () => {
           </button>
           <div className="d-flex justify-content-between change mt-3">
             <button className="btn btn-outline-warning w-100 p-1">
-              <i className="fab fa-github icons"></i> Sign In with Google
+              <i className="fab fa-github icons"></i> Sign Up with Google
             </button>
           </div>
         </div>

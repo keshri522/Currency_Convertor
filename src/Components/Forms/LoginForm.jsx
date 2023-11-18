@@ -25,7 +25,7 @@ const LoginForm = () => {
             <label htmlFor="floatingPassword">Password</label>
           </div>
           <div className="d-flex justify-content-between">
-            <Link className="nav-link" href="#forgotPassword">
+            <Link className="nav-link" to="/forgotpassword">
               Forgot Password?
             </Link>
             <Link to="/register" className="nav-link">
