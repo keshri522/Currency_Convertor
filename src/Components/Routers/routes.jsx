@@ -1,8 +1,10 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "../Home/Home";
-import LoginForm from "../Forms/LoginForm";
-import RegisterForm from "../Forms/RegisterForm";
+// import LoginForm from "../Forms/LoginForm";
+import Register from "../auth/Register";
+// import RegisterForm from "../Forms/RegisterForm";
+import Login from "../auth/Login";
 import ForgotPassword from "../Forms/ForgotPassword";
 import ChangePassowrd from "../Forms/ChangePassword";
 // creating a function path that will redircts user based on the therei endpoints
@@ -12,8 +14,8 @@ const Path = () => {
     <>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/login" element={<LoginForm></LoginForm>}></Route>
-        <Route path="/register" element={<RegisterForm></RegisterForm>}></Route>
+        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/register" element={<Register></Register>}></Route>
         <Route
           path="/forgotpassword"
           element=<ForgotPassword></ForgotPassword>

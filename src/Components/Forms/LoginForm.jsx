@@ -1,26 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const LoginForm = () => {
+const LoginForm = ({ SiginpUser, loading, formdata, hanldeChange }) => {
   return (
     <div className="container">
       <div className="row box">
         <div className="col-md-6">
-          {/* <h3>Login Page</h3> */}
           <div className="form-floating mb-3">
             <input
+              name="email"
               type="email"
+              value={formdata.email}
               className="form-control transparent"
               id="floatingInput"
+              onChange={hanldeChange}
               placeholder="name@example.com"
             ></input>
             <label htmlFor="floatingInput">Email address</label>
           </div>
           <div className="form-floating mb-3">
             <input
+              name="password"
               type="password"
+              value={formdata.password}
               className="form-control transparent"
               id="floatingPassword"
               placeholder="Password"
+              onChange={hanldeChange}
             ></input>
             <label htmlFor="floatingPassword">Password</label>
           </div>
@@ -32,12 +37,24 @@ const LoginForm = () => {
               Don't have an account?
             </Link>
           </div>
-          <button
-            className="btn btn-outline-danger mt-3 w-100 p-2"
-            type="submit"
-          >
-            Sign In
-          </button>
+          {/* condtionally rendering of singin button based on the loading props */}
+          {loading ? (
+            <button
+              onClick={SiginpUser}
+              className="btn btn-outline-danger mt-3 w-100 p-2"
+              type="submit"
+            >
+              Signing...
+            </button>
+          ) : (
+            <button
+              onClick={SiginpUser}
+              className="btn btn-outline-danger mt-3 w-100 p-2"
+              type="submit"
+            >
+              Sign In
+            </button>
+          )}
           <div className="mt-3">
             <button className="btn btn-outline-warning w-100 p-2">
               {/* font awesome icons */}
