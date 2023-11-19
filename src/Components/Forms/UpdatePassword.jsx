@@ -25,7 +25,7 @@ const UpdatePassword = () => {
         newPassword.cpassword = password.element2;
         // after saving send to the localstorage
         localStorage.setItem("RegisterData", JSON.stringify(newPassword));
-        navigate("/");
+        navigate("/login");
         toast.success("Successfully updated password");
       }
     } catch (error) {

@@ -25,7 +25,7 @@ const LoginForm = ({ SiginpUser, loading, formdata, hanldeChange }) => {
           // if wwill work only successful status code
           localStorage.setItem("RegisterData", JSON.stringify(res.data));
           localStorage.setItem("loading", JSON.stringify(1));
-          navigate("/");
+          navigate("/dashboard");
         }
       } catch (error) {
         // console.log(error.message);
@@ -96,11 +96,6 @@ const LoginForm = ({ SiginpUser, loading, formdata, hanldeChange }) => {
             >
               {/* font awesome icons */}
               <i className="fab fa-google icons"></i> Sign In with Google
-            </button>
-          </div>
-          <div className="mt-3">
-            <button className="btn btn-outline-dark w-100 p-2">
-              <i className="fab fa-github icons"></i> Sign In with Gtihub
             </button>
           </div>
         </div>

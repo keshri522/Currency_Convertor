@@ -48,7 +48,7 @@ const Login = () => {
         // to show some lading effect with some delay
         Setloading(false);
         toast.success("Login Suceessfully");
-        navigate("/");
+        navigate("/dashboard");
       }, 1000);
     } catch (error) {
       //   console.log(error); just for debugging

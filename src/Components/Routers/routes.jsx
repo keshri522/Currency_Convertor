@@ -6,12 +6,14 @@ import Login from "../auth/Login";
 import ForgotPassword from "../Forms/ForgotPassword";
 import ChangePassowrd from "../Forms/ChangePassword";
 import Dashboard from "../Dashboard/Dashboard";
+import Home from "../auth/Home";
 // creating a function path that will redircts user based on the therei endpoints
 const Path = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Dashboard></Dashboard>}></Route>
+        <Route path="/" element={<Home></Home>}></Route>
+        <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route

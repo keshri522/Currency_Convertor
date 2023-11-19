@@ -62,9 +62,7 @@ const Nav = () => {
             {data && (data.given_name || data.name) ? (
               <h5>{data.given_name || data.name}</h5>
             ) : (
-              <Link className="nav-link" to="/register">
-                Register
-              </Link>
+              ""
             )}
           </div>
         </div>

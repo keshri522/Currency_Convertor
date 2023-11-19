@@ -70,7 +70,8 @@ body {
   padding-left: 2rem;
   padding-right: 2rem;
 }
-.display-2 {
+.display-2,
+.display-4 {
   font-family: "Lobster", cursive;
 }
 .mt {
