@@ -6,7 +6,7 @@ const Dashboard = () => {
   const [fromCurrency, setFromCurrency] = useState("INR"); // based on onchange i will add the value on this state later make a api call
   const [toCurrency, setToCurrency] = useState(""); // based on the state we will select to convert on which currency i want to convert
   const [convertedAmount, setConvertedAmount] = useState(""); // here once convert the wresult will added to this state
-  const [check, setcheck] = useState(false); // based on this i will show  the Converted resutls
+
   // this function will clear all the fields once user click on the reset button
   const clearValues = () => {
     setOriginalAmount("");
@@ -43,7 +43,7 @@ const Dashboard = () => {
         // console.log(error);
       }
     })();
-  }, [check, originalAmount, fromCurrency, toCurrency]); // this will run based on the depedencyiess
+  }, [originalAmount, fromCurrency, toCurrency]); // this will run based on the depedencyiess
 
   //   console.log(CountryCurrencyCode);
   //   console.log(fromCurrency, toCurrency); just for debugging
@@ -79,11 +79,11 @@ const Dashboard = () => {
             </div>
 
             <div className="row justify-content-between mt-4">
-              <div className="col-md-6">
-                <div className="input-group ">
+              <div className="col-md-5">
+                <div className="input-group  ">
                   <span className="input-group-text">From</span>
                   <select
-                    className="form-select p-2"
+                    className="form-select p-2 "
                     value={fromCurrency}
                     onChange={(e) => setFromCurrency(e.target.value)}
                   >
@@ -97,9 +97,19 @@ const Dashboard = () => {
                   </select>
                 </div>
               </div>
+              <div className="col-md-2 text-center">
+                <button
+                  className="text-white btn-success btn swap m-2 "
+                  type="button"
+                  onClick={convertCurrency}
+                >
+                  {/* this is swapping button of currency */}
+                  <i class="fa-solid fa-right-left"></i>
+                </button>
+              </div>
 
-              <div className="col-md-6">
-                <div className="input-group mb-3">
+              <div className="col-md-5">
+                <div className="input-group ">
                   <span className="input-group-text">To</span>
                   <select
                     className="form-select p-2"
@@ -119,15 +129,7 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <div className="text-center">
-              <button
-                className="btn btn-primary m-2 b"
-                type="button"
-                onClick={convertCurrency}
-              >
-                <i class="fa-solid fa-right-left"></i>
-              </button>
-
+            <div className="text-center mt-3">
               <button
                 className="btn btn-danger m-2 b"
                 type="button"

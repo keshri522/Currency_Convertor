@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# Currency Converter Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Currency Converter application! This project is a responsive web application built with React.js, Axios for API calls, Google Authentication, Bootstrap and Vanilla css for styling, and various other technologies to provide a seamless currency conversion experience.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Authentication](#authentication)
+- [Dark Mode](#dark-mode)
+- [Local Storage](#local-storage)
+- [Form Validation](#form-validation)
+- [API Integration](#api-integration)
+- [Responsive Design](#responsive-design)
+- [Contributing](#contributing)
+- [License](#license)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Google Authentication for easy sign-in.
+- Currency conversion with real-time exchange rates using Axios for API calls.
+- Intuitive UI with Bootstrap components and vanilla CSS.
+- Dark mode for a personalized user experience.
+- User login and logout system.
+- Secure form validation for user input.
+- Local storage for persistent user data.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+- **React.js**: Frontend library for building user interfaces.
+- **Axios**: Promise-based HTTP client for making API calls.
+- **Google Authentication**: Allows users to sign in with their Google accounts.
+- **Bootstrap**: Frontend framework for styling and UI components.
+- **Vanilla CSS**: Custom styling for a unique look.
+- **Local Storage**: To store user data locally.
+- **From Validation**:Complete from Validation using Vanilla Js and Regular expression.
+- **ExchangeRate-API**: API used for fetching real-time currency exchange rates.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+1. Clone the repository:
+   ```bash
+   git clonehttps://github.com/keshri522/Currency_Convertor.git
+   cd currency-converter
+   ```
+2. Install the dependencies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+  npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Usage
+- Sign in with your Google account.
+- Explore the currency converter, switch between currencies, and experience the real-time exchange rates.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Authentication
+-Click on the "Sign In with Google" button to authenticate using your Google account.
+-Click on the "Logout" button to sign out.
 
-### `npm run eject`
+## Dark Mode
+-Toggle the dark mode switch for a different visual experience.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Local Storage
+-User data is stored locally using the browser's local storage.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## API Integration
+- ExchangeRate-API is used to fetch real-time currency exchange rates.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Responsive Design
+- The application is fully responsive, ensuring a seamless experience across various devices and screen sizes.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## About Me
+-Hi there! I'm Rahul keshri, a passionate full-stack developer. Feel free to reach out to me at rkeshri522@gmail.com for any inquiries or collaboration opportunities.
+```

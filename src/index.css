@@ -8,6 +8,7 @@ body {
   margin: 0px;
   padding: 0px;
 }
+
 /* for the home page  */
 .box {
   display: flex;
@@ -62,6 +63,10 @@ body {
   font-size: 1.2rem;
 }
 .b {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+.swap {
   padding-left: 2rem;
   padding-right: 2rem;
 }
@@ -80,5 +85,9 @@ body {
   }
   .margin {
     margin-bottom: 9px;
+  }
+  .input-group {
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 }

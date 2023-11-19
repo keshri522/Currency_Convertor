@@ -29,7 +29,6 @@ const ToggleModeButton = () => {
       onClick={toggleMode}
     >
       {isDarkMode ? <FaSun /> : <FaMoon />}
-      {isDarkMode ? "Light Mode" : "Dark Mode"}
     </button>
   );
 };

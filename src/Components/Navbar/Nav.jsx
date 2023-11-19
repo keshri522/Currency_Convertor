@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ToggleModeButton from "../Mode/ToggleMode";
+import Path from "./../Routers/routes";
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ const Nav = () => {
     const data = localStorage.getItem("loading");
     return data || "";
   }
+  // this will run whenever my boolean data changed
   useEffect(() => {
     const user = localStorage.getItem("RegisterData");
     if (user) {
@@ -23,6 +25,7 @@ const Nav = () => {
     setBoolean(getDataFromLocalStorage());
   };
 
+  // adding a dom manipulation or adding event listeners which will run once i my boolean state changes
   useEffect(() => {
     window.addEventListener("storage", handleStorageChange);
 
@@ -44,6 +47,9 @@ const Nav = () => {
         <div className="row">
           <div className="col-md-12 d-flex justify-content-around">
             <ToggleModeButton></ToggleModeButton>
+            <Link className="nav-link" to="/">
+              Home
+            </Link>
             {boolean ? (
               <Link onClick={deleteUser} className="nav-link" to="/login">
                 Logout
