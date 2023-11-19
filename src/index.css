@@ -77,6 +77,15 @@ body {
 .mt {
   margin-top: 4rem;
 }
+.mts {
+  margin-top: 5rem;
+}
+.display-5:hover {
+  color: blue;
+}
+.line {
+  line-height: 2rem;
+}
 
 /* // media query for singup button with google */
 @media screen and (max-width: 600px) {
